@@ -1,0 +1,75 @@
+@import "Variables.scss";
+@import "Commun.scss";
+
+//coloré sur hover
+.slick-slide img{
+    -webkit-filter: grayscale(100%); //N&B
+    filter: grayscale(100%);
+    &:hover{
+        -webkit-filter: none;
+        filter:none;
+        transform:scale(1.1);
+    }
+}
+
+//Flèches personalisées 
+.slick-next {
+    background: url('../images/right-arrow.svg') center center no-repeat!important;
+    &::before {
+      display: none;
+    }
+}
+.slick-prev {
+    background: url('../images/left-arrow.svg') center center no-repeat!important;
+    &::before {
+        display: none;
+    }
+}
+
+.pclients{
+    text-align:center;
+    padding:50px 0;
+    color: $orange;
+}
+
+.cards{
+    margin:0px auto;
+    width:90%;
+    height: 145px;
+
+    .card{
+        padding:10px 0px;
+        //margin: auto 20px;
+        margin: 0 auto;
+        height: 145px;
+
+        .clientLogo{ //fit the image 
+            display: block;
+            position:relative;
+            margin: 0 auto; //ajout
+        }
+    } 
+}
+
+
+/*@include mediaXs{
+    .cards{
+        height: 110px;
+        //background: yellow;
+        .card{
+            padding:0 !important;
+            margin: 0 !important;
+            //background: pink;
+            object-fit: contain;
+            height: 110px;
+            .clientLogo{
+                transform: scale(0.3);
+            }
+        }
+    }
+}*/
+    
+
+
+
+

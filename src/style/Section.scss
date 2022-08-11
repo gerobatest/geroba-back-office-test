@@ -1,0 +1,185 @@
+@import 'Variables.scss';
+@import 'Commun.scss';
+
+.sectionContainer{
+    margin-top: $paddingSectionLg !important;
+    display:flex;
+    .sectionImage{
+        padding: 0 3%;
+        width:50%;
+        overflow:hidden; 
+        img{
+            width:100%; 
+            height:100%;
+            object-fit: contain;
+            overflow:hidden; 
+        }
+    }
+    .sectionText{
+        padding: 0 3%;
+        width:50%;
+        .paragraph{
+            margin-top: $lineheightLg;
+        }
+        li{
+            font-size: $fontsizeLg;
+            color: $grey;
+            line-height:$lineheightLg;
+            margin:20px 0px; 
+            margin-left:17px !important;
+
+            .openFonc{
+                text-decoration: none;
+                color: $orange;     
+            }
+            .openFonc:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+
+//Téléchargement
+.container-telechargement{ 
+    margin-top: $paddingSectionLg !important;
+    padding-top: 20px;
+    background: $sectiongreybg;
+    .titleTelechargement{
+        padding-left:3%;
+    }
+}
+
+
+//Responsive
+//Phone: mobile 
+@include mediaXs{
+    .sectionContainer{
+        display:block;
+        position:relative; //test
+
+        .sectionImage{
+            img{
+                transform: scale(0.7);
+            }
+        }
+        .sectionText, .sectionImage{
+            width:100%;
+            display:block;
+        }
+        .sectionText{
+            padding: 0 8px;
+            li{
+                font-size: $fontsizeSm;
+                line-height: $lineheightSm; 
+            }
+        }
+    }
+    //Comment ça marche : image en dessus du texte
+    #about{
+        margin-top: 0 !important; //enlève l'espacement
+        display:flex;
+        flex-direction: column;
+        .sectionImage{
+            order:1;
+        }
+        .sectionText{
+            order: 2;
+        }
+    }
+
+    #fonctions{
+        margin-top: 0px !important; //enlève l'espacement
+    }
+
+
+
+    .container-telechargement{
+        .titleTelechargement{
+            padding-left:8px !important;
+        }
+        .sm-container{
+            display:block;
+            .sm-paragraph{
+                width: 100%;
+            }
+        }
+    }
+}
+
+//Ecran tablette eg:iPad Mini
+@include mediaSm{
+    .sectionContainer{
+        .sectionText{
+            width:50%; 
+            li{
+                font-size: $fontsizeSm;
+                line-height: $lineheightSm;
+            }
+        }
+        .sectionImage{
+            padding:20px 0px;
+            height:100%; 
+            margin:auto;
+            img{
+                transform:scale(1);
+            }
+        }
+    }  
+}
+
+//Ecran medium : iPad Air 
+@include mediaMd{
+    .sectionContainer{
+        .sectionText{
+            width:50%; 
+            li{
+                font-size: $fontsizeMd;
+                line-height: $lineheightMd;
+            }
+        }
+        .sectionImage{
+            margin:auto;
+        }
+    } 
+}
+
+//Ecran large 
+@include mediaXl{
+    .sectionContainer{
+        .sectionText{
+            width:50%; 
+            li{
+                font-size: $fontsizeXl;
+                line-height: $lineheightXl;
+            }
+        }
+        .sectionImage{
+            margin:auto;
+        }
+    } 
+}
+
+@include mediaXxl{
+    .sectionContainer{
+        .sectionText{
+            width:50%; 
+            li{
+                font-size: $fontsizeXxl;
+                line-height: $lineheightXxl;
+            }
+        }
+        .sectionImage{
+            img{
+                width:65%; 
+                height:65%;
+                object-fit: contain;
+            }
+        }       
+    }
+}
+
+
+
+

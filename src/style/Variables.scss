@@ -1,0 +1,96 @@
+//Couleurs
+$black: #1D1D1B;
+$orange:#F15a22;
+$grey:#6F6F6E;
+$btngrey:#B1B1B1;
+$shadowgrey: rgb(209, 204, 204);
+$footergrey: #A8A8A7;
+$sectiongreybg: #E3E3E3;
+$btngreen:#008D36;
+$mapbg: rgb(184, 208, 184);
+$white: #fff;
+
+$Segoe: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+//espace entre paragraphes p 
+$lineheightSm:20px; 
+$lineheightMd:22px;
+$lineheightLg:24px;
+$lineheightXl:38px;
+$lineheightXxl: 48px;
+
+//Dimension titre pour chaque type d'écran
+$titleXl:70px;
+$titleLg: 55px;
+$titleMd: 45px;
+$titleSm: 30px; 
+
+//Dimension text
+$fontsizeSm: 14px; //Mobile
+$fontsizeMd: 16px; //iPad Air
+$fontsizeLg: 17px; //Desktop
+$fontsizeXl: 24px; //Large screens 
+$fontsizeXxl: 35px;
+
+$paddingSectionLg: 70px;
+
+//espace pour chaque type d'écran NAVBAR
+$spacing-sm: 5px;
+$spacing-md: 10px;
+$spacing-lg: 20px;
+
+//bar de navigation 
+$header-height: 55px;
+$headerXl: 90px;
+$headerXxl: 160px;
+
+$navSliderXxl:  80vh;
+
+
+$footerLg: 680px;
+$footerXl: 990px;
+$footerXxl: 1120px;
+
+
+// Media Query : Responsive
+//Phone
+@mixin mediaXs{
+    @media screen and (max-width:576px){
+        @content;
+    }
+}
+
+//Portrait tablets & Large phones
+@mixin mediaSm {
+    @media screen and (min-width: 577px) and (max-width: 768px){
+      @content;
+    }
+}
+  
+//Tablette & Large phones
+@mixin mediaMd {
+    @media screen and (min-width: 769px) and (max-width: 992px) {
+        @content;
+    }
+}
+
+//Desktop 
+@mixin mediaLg{
+    @media screen and (min-width: 993px) and (max-width: 1366px) {
+        @content;
+    }
+}
+
+//Widescreen 
+@mixin mediaXl {
+    @media screen and (min-width: 1367px) and (max-width: 2559px){
+        @content;
+    }
+}
+
+//4K
+@mixin mediaXxl {
+    @media screen and (min-width: 2560px) {
+        @content;
+    }
+}

@@ -1,0 +1,93 @@
+@import "Variables.scss";
+
+#demo{
+    
+    margin-top: $paddingSectionLg !important;
+    .titleDemo{
+        padding-left:3%; //Démo
+    }
+}
+
+
+//Section téléchargement + Démo + PopUp
+.sm-container{
+    display:flex;
+    margin:auto;
+    .sm-paragraph{
+        color: $grey;
+        //text-align:justify;
+        line-height: $lineheightLg; 
+        width:50%;
+        box-sizing:border-box;
+    }
+    //Premier element
+    p.sm-paragraph:nth-child(odd) {
+        padding:3%; 
+    }
+    //second element
+    p.sm-paragraph:nth-child(even) {
+        padding:3%; 
+    }  
+}
+
+//Responsive 
+//Ecran mobile
+@include mediaXs{
+    #demo{
+        padding: 0 8px;
+        .title{
+            padding:0 !important; //Démo 
+        }
+        .sm-container{
+            display:block;
+
+            .sm-paragraph{
+                width:100%;
+                padding:0 !important; 
+                line-height: $lineheightSm; 
+            }
+            //second element
+            p.sm-paragraph:nth-child(even) {
+                margin-top:20px; 
+            } 
+        }
+    }   
+}
+
+
+//Ecran iPad Mini
+@include mediaSm{
+.sm-container{
+    .sm-paragraph{
+        line-height: $lineheightSm; 
+        } 
+    }
+}
+
+
+//Ecran: iPad Air
+@include mediaMd{
+.sm-container{
+    .sm-paragraph{
+        line-height: $lineheightMd; 
+        } 
+    }
+}
+
+
+//Ecran large
+@include mediaXl{
+    .sm-container{
+        .sm-paragraph{
+            line-height: $lineheightXl; 
+        } 
+    }
+}
+
+@include mediaXxl{
+    .sm-container{
+        .sm-paragraph{
+            line-height: $lineheightXxl; 
+        } 
+    }
+}

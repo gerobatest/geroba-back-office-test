@@ -1,0 +1,468 @@
+@import "Variables.scss";
+@import "Commun.scss";
+
+
+.footer{ 
+    margin-top: $paddingSectionLg !important;
+    color: $grey;
+    .footerRow1{
+        height: $footerLg;
+        display:flex;
+        .map{ 
+            background: $mapbg;
+        }
+        .mapLocation{
+            display:none; 
+        }
+        .map, .contact-container{
+            width:50%; 
+        }
+        .contact-container{
+            box-sizing:border-box;
+            padding:1.5% 3%; //VARIABLE  
+            background: $sectiongreybg;
+            .title{
+                color: $orange; 
+                font-size: $titleLg; 
+                font-weight: normal;
+                margin-bottom: 20px;
+            }
+            form div{
+                position:relative;
+                .star{
+                    color: $orange;
+                }
+            }
+            //Nom* et Prénom*
+            form div:nth-child(1),form div:nth-child(2){
+                width:45%;
+                display:inline-block;
+            }
+            //Nom*
+            form div:nth-child(1){
+                margin-right:5%;
+            }
+            //Prénom
+            form div:nth-child(2){
+                margin-left:5%;
+            }
+            input:focus ~ .floating-label,
+            textarea:focus ~ .floating-label,
+            input:not(:focus):valid ~ .floating-label,
+            textarea:not(:placeholder-shown)~.floating-label{ //?
+                top: 2px;
+                bottom: 10px;
+                left: 0px;
+                font-size: 12px;
+                opacity: 1;
+            }
+            .floating-label {
+                font-size: $fontsizeSm;
+                position: absolute;
+                left:9px;
+                top:14px;
+                opacity:0.8;
+                transition: 0.2s ease all;
+            }
+            .message{
+                top:25px;
+            }
+            input{
+                background:none;
+                border:none;
+                border-bottom:2px solid $footergrey;
+                padding:0px 2px;
+            }
+            input:focus, textarea:focus{
+                outline:none;
+            }
+            input[type=email], textarea{
+                width:100%;
+            }
+            input[type=text]{
+                width:100%;
+                box-sizing:border-box;
+            }
+            textarea{
+                height:150px;
+                border:none;
+                border-radius:8px;
+                padding:10px;
+                font-family: $Segoe;
+                box-sizing:border-box;
+            }
+            input, textarea, button{
+                margin:20px 0px;
+                color: $grey;
+            }
+            .form-btn{
+                margin-right: 3%; //changement
+                position:absolute;
+                right:0px;
+                button{
+                    color: $white;
+                    border:none;
+                    padding:6px 16px;
+                    border-radius:3px;
+                    opacity:1;
+                    transition: all 1.2s ease-in;
+                }
+                button:hover{
+                    cursor:pointer;
+                }
+                button:first-child{ //Annuler
+                    background:$btngrey;
+                    margin-right: 25px; //changement
+                }
+                button:last-child{ //Envoyer
+                    background:$btngreen;
+                }
+            }
+            .contact-info{
+                margin-top: var(--contactInfo-marginTop, 0px); //Variable 
+                line-height:$lineheightLg; //VARIABLES
+                transition: all 1.2s ease-in-out;
+                p{
+                    font-size: $fontsizeLg;
+                }
+            }
+        }
+    }
+    .mention{
+        p{
+            text-align: center;
+            padding-top:20px;
+        }
+        .openFonction{
+            text-decoration: none;
+            color: $orange;     
+        }
+        .openFonction:hover{
+            cursor: pointer;
+        }
+        .modalment, .overlay {
+            z-index: 999;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            right: 0;
+            position: fixed;
+            overflow: scroll;
+            background: rgba(255, 254, 254, 0.8);
+            .PopUp{
+                z-index: 99999;
+                position: absolute;
+                top:20px;
+                left:0;
+                right:0;
+                margin-left: auto;
+                margin-right: auto;
+                background: $white;
+                box-shadow: 0px 0px 5px 5px grey;
+                width:80%;
+                border-radius:5px;
+                .close-modal{
+                    z-index:9999;
+                    position:absolute;
+                    top:10px;
+                    right:10px;
+                    background:none;
+                    font-size:18px;
+                    padding:5px 10px;
+                    &:hover{
+                        cursor:pointer;
+                        color: $white;
+                        background: $orange;
+                        border:none;
+                    }
+                }
+            }
+            .title {
+                text-align: center;
+                margin-left: 4%;
+                margin-top: 55px !important;
+                margin-bottom: 40px !important;
+                .logoMent{
+                    position: absolute;
+                    left: 8px;
+                    top: 10px;
+                }
+            }
+            .lightTitle{
+                text-align: left;
+                margin-left: 3%;
+                margin-top: 30px !important;
+                font-size: 30px;
+                color: black;
+                margin-bottom: 3px;
+            }
+            .mentionContet{
+                .mentcont{
+                 text-align: left;
+                 margin-left: 4%;
+                 margin-right: 4%;
+                }
+            }
+        }
+
+    }
+    .footerRow2{
+        p {
+            text-align:center;
+            padding:40px 0px;
+        }
+        //position du logo
+        .footerLogo{
+            vertical-align: text-bottom;
+            height: 30px;
+        }
+    }
+}
+//Responsive
+//Smartphones 
+@include mediaXs{
+    .footer{
+        .footerRow1{
+            height: 800px;
+            display:flex;
+            flex-direction: column;
+            .map, .contact-container{
+                width:100%;
+            }
+            .map{
+                order: 2;
+                height:100%;
+            }
+            .contact-container{
+                order: 1;
+                .title{
+                font-size: $titleSm; //titre responsive
+                } 
+                //Nom* et Prénom*
+                form div:nth-child(1),form div:nth-child(2){
+                    display:block;
+                    width:100%;
+                }
+                //Nom*
+                form div:nth-child(1){
+                    margin-right:0;
+                }
+                //Prénom
+                form div:nth-child(2){
+                    margin-left:0;
+                }
+                .contact-info{
+                    line-height:$lineheightSm; 
+                    p{
+                        font-size: $fontsizeSm;
+                    }
+                }
+            }   
+        }
+        .mention{
+            p{
+                font-size:11px; 
+            }
+        }
+        .footerRow2{
+            p {
+                padding: 10px 0px;
+                font-size:11px;
+                .footerLogo{
+                height: 20px;
+                }
+            }   
+        }
+    }
+}
+//Portrait tablet and large phone
+@include mediaSm{
+    .footer{
+        .footerRow1{
+            .map, .contact-container{
+                width:100%;
+            }
+            .map{
+                height: 100%;
+            }
+            .contact-container{
+                .title{
+                    font-size: $titleSm; //titre responsive
+                } 
+            }
+        }
+        .mention{
+            p{
+                font-size:14px; 
+            }
+        }
+        .footerRow2{
+            p {
+                padding: 25px 0px;
+                font-size:14px; 
+                .footerLogo{
+                    height: 24px;
+                }
+            }
+        }
+    }
+}
+//Tablette 
+@include mediaMd{
+    .footer{
+        .footerRow1{
+            .map{
+                //height:450px;
+                height: 100%;
+            }
+            .contact-container{
+                .title{
+                    font-size: $titleMd; //titre responsive
+                } 
+            }
+        }
+        .mention{
+            p{
+                font-size:14px;
+            }     
+        }
+        .footerRow2{
+            p {
+                padding: 25px 0px;
+                font-size:14px; 
+                .footerLogo{
+                    height: 24px;
+                }
+            }
+        }
+    }
+}
+
+//Responsive
+@include mediaXl{
+    .footer{
+        .footerRow1{
+            height: $footerXl;
+            .map{
+                height:100%;
+            }
+            .contact-container{
+                .title{
+                    font-size: $titleXl;
+                }
+                .contact-info{
+                    margin-top: var(--contactInfo-marginTop, 20px); //Variable 
+                    line-height:$lineheightXl; 
+                    p{
+                        font-size: $fontsizeXl;
+                    }
+                }
+                input:focus ~ .floating-label,
+                textarea:focus ~ .floating-label,
+                input:not(:focus):valid ~ .floating-label,
+                textarea:not(:placeholder-shown)~.floating-label{ 
+                    top: 5px;
+                    font-size: 15px;
+                }
+                .floating-label {
+                    font-size: $fontsizeLg;
+                    top:32px;
+                }
+                .message{
+                    top:55px;
+                }
+                input, textarea, button{
+                    margin:40px 0px;
+                    color: $grey;
+                    font-size:$fontsizeXl;
+                }
+                textarea{
+                    height:220px;
+                }
+                .form-btn{
+                    button{
+                        padding:15px 30px;
+                        font-size:18px;
+                    }
+                }
+            }
+        }
+        .mention{
+            font-size:15px; 
+        }
+        .footerRow2{
+            p {
+                padding: 45px 0px;
+                font-size:15px; 
+                .footerLogo{
+                    height: 32px;
+                }
+            }
+        }
+    }
+}
+@include mediaXxl{
+    .footer{
+        .footerRow1{
+            height: $footerXxl;
+            .contact-container{
+                position: relative; 
+                .title{
+                    font-size: $titleXl;
+                }
+                .contact-info{
+                    margin-top: var(--contactInfo-marginTop, 0px); //Variable 
+                    line-height:$lineheightXxl; 
+                    p{
+                        font-size: $fontsizeXxl;
+                    }
+                }
+                input:focus ~ .floating-label,
+                textarea:focus ~ .floating-label,
+                input:not(:focus):valid ~ .floating-label,
+                textarea:not(:placeholder-shown)~.floating-label{ //?
+                top: 5px;
+                font-size: $fontsizeXl;
+                }
+                .floating-label {
+                    font-size: $fontsizeXxl;
+                    top:32px;
+                }
+                .message{
+                    top:55px;
+                }
+                input, textarea, button{
+                    margin:50px 0px;
+                    color: $grey;
+                    font-size:$fontsizeXxl;
+                }
+                textarea{
+                    height:240px;
+                }
+                .form-btn{
+                    position: absolute;
+                    right: 50px; 
+                    button{
+                        padding:15px 30px;
+                        font-size:18px;  
+                    }
+                }
+            }
+        }
+        .mention{
+            p{
+               font-size: $fontsizeXl;   
+            }
+        }
+        .footerRow2{
+            p {
+                padding: 45px 0px;
+                font-size: $fontsizeXl; 
+                .footerLogo{
+                    height: 32px;
+                }
+            }
+        }
+    }
+}

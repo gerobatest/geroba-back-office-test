@@ -1,0 +1,19 @@
+{
+    "center": [1.253639, 44.414870],
+      "geojsonObject2": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates":[
+                1.253639, 
+                44.414870
+              ]
+            }
+          }
+        ]
+      },
+    "sauzetLonLat": [1.253639, 44.414870]
+}

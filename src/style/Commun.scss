@@ -1,0 +1,88 @@
+@import "Variables.scss";
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: $Segoe;
+}
+
+.title{
+    color: $orange;
+    font-size: $titleLg; /*TBD*/
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.lightTitle{
+    color: $orange;
+    font-size: $titleMd; /*TBD*/
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+p{
+    font-size: $fontsizeLg;;
+    color: $grey;
+    line-height: 20pt; /*TBD*/
+}
+
+//Version mobile
+@include mediaXs{
+    .title{
+        font-size: $titleSm;
+        text-align:center;
+    } 
+    p{ 
+        font-size: $fontsizeSm;
+        line-height: $lineheightSm;
+    }
+}   
+
+
+//Version tablette + iPad mini
+@include mediaSm{
+    .title{
+        font-size: $titleSm;
+    } 
+    p{
+        font-size: $fontsizeSm;
+    }
+}   
+
+
+//iPad Air 
+@include mediaMd{
+    .title{
+        font-size: $titleMd;
+    }
+    p{
+        font-size: $fontsizeMd;
+    }
+}  
+
+
+//Large screens
+@include mediaXl{
+    .title{
+        font-size: $titleXl;
+    } 
+    p{
+        font-size: $fontsizeXl;
+        line-height: $lineheightXl;
+    }
+} 
+
+@include mediaXxl{
+    .container{
+        width: 2560px;
+        margin:0 auto;
+    }
+    p{
+        font-size: $fontsizeXxl;
+        line-height: $lineheightXxl;
+    }
+}
