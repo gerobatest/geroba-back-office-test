@@ -284,9 +284,9 @@ function setMargin (newMargin){
             </form>
             <div className="contact-info">
               <p><AiTwotoneHome color="#F15a22"/> : 81 rue du Moulin, 46140 SAUZET, France.</p>
-              <p><GiRotaryPhone color="#F15a22"/> : +33 (0) 6 31 89 80 34</p>
-              <p><MdEmail color="#F15a22"/> : contact@gerobamaster.fr</p>
-              <p><FaGlobe color="#F15a22"/> : www.geroba.fr</p>
+              <p><GiRotaryPhone color="#F15a22"/> : <a href="tel:+33 (0) 6 31 89 80 34">+33 (0) 6 31 89 80 34</a></p>
+              <p><MdEmail color="#F15a22"/> : <a href="mailto:contact@gerobamaster.fr">contact@gerobamaster.fr</a></p>
+              <p><FaGlobe color="#F15a22"/> : <a href="https://www.gerobamaster.fr/login" target="_blank"  rel="noreferrer">www.geroba.fr</a></p>
             </div>
           </div>
         </div>

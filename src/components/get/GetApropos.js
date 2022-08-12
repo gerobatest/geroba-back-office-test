@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function GetAccueil(props) {
+export default function GetAPropos(props) {
 
     const displayText = (props) =>{
         
@@ -24,6 +24,9 @@ export default function GetAccueil(props) {
                             </p>
                             <p className="paragraph">
                                 {text.para4}
+                            </p>
+                            <p className="paragraph">
+                                {text.para5}
                             </p>
                         </div> 
                     )

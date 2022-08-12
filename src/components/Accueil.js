@@ -67,45 +67,6 @@ const SectionText = (props) => {
     getAllText();
   })
 
-  /*function GetAccueil(props) {
-
-    const displayText = (props) =>{
-        
-        const {text} = props; //text est un props
-
-        if(text.length > 0){
-            return(
-                text.map((text, index) => {
-                    //console.log(text);
-                    //La partie qu'on veut montrer dans la page depuis la base de données
-                    return(
-                        <>
-                            <p className="paragraph">
-                                {text.para1}
-                            </p>
-                            <p className="paragraph">
-                                {text.para2}
-                            </p>
-                            <p className="paragraph">
-                                {text.para3}
-                            </p>
-                            <p className="paragraph">
-                                {text.para4}
-                            </p>
-                        </> 
-                    )
-                })
-            )  
-        }
-    }
-
-    return (
-        <>
-            {displayText(props)}
-        </>
-    )
-}*/
-
   return (
     <>
       <div id="home">
@@ -157,11 +118,13 @@ const SectionText = (props) => {
             </div>
 
             <div className="sectionText">
+              
               <h1 className="title" >
                   {props.title}
               </h1>
 
               <GetAccueil text={text}/>
+              
               {/* <p className="paragraph">
                 La solution GEROBA permet de procéder à un état
                 des lieux permanent du patrimoine routier

@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import '../style/Section.scss'
 import Doc from "./Doc";
+
 import axios from 'axios';
+import  GetTelechargment from './get/GetTelechargement';
 
 function SectionTelechargement() {
 
@@ -25,51 +27,17 @@ function SectionTelechargement() {
         getAllNotes();
     })
 
-    //Cette fonction extrait les données a mettre sur la page
-    function NoteTimeline(props){
-
-        const displayNotes = (props) => {
-
-            const {notes} = props;
-
-            if (notes.length > 0) {
-                return(
-                    notes.map((note, index) => {
-                        //console.log(notes);
-                        //La partie qu'on veut montrer dans la page depuis la base de données
-                        return(
-                            <>
-                                <p className="sm-paragraph">
-                                    {note.para1}
-                                </p>
-                                <p className="sm-paragraph">
-                                    {note.para2}
-                                </p>
-                            </> 
-                        )
-                    })
-                )   
-            }
-        }
-
-        return(
-            <>
-                {displayNotes(props)}
-            </>
-        )
-    }
-
-
   return( 
         <>
             <div className="container-telechargement" id="téléchargement">     
                 <h1 className="title titleTelechargement" >Téléchargements</h1>
-                <div className="sm-container">
+                
 
                    
-                    <NoteTimeline notes={notes}/>
+                    < GetTelechargment notes={notes}/>
 
-                    {/* <p className="sm-paragraph">
+                    {/* <div className="sm-container"> 
+                    <p className="sm-paragraph">
                         Les documents importants à télécharger...
                         consectetur adipisclning elit. Suspendisse ert
                         iololl eras pellentesque elementum lobortis. Sed
@@ -82,8 +50,8 @@ function SectionTelechargement() {
                         Donec libero erat, pulvinar id nunc id, volutpat
                         laoreet tortor. Praesent dapibus lacus molestie
                         dapibus auctor.
-                    </p>  */}
-                </div>
+                    </p> 
+                    </div> */}
                                 
                 <Doc/>
             </div>

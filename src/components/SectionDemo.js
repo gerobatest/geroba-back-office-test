@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState}  from 'react'
 import ClientData from "./ClientData";
 import Slider from "react-slick";
 import '../style/Commun.scss';
@@ -7,6 +7,9 @@ import '../style/VideoDemo.scss';
 import "../style/Clients.scss";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+
+import axios from 'axios';
+import  GetDemo from './get/GetDemo';
 
 function SectionDemo() {
 
@@ -46,12 +49,36 @@ function SectionDemo() {
     ]
   };
 
+  const url_api = "http://localhost:9000/demo/";
+
+    //notes sera l'état des donées reçues depuis la base de donnée
+    const [notes, getNotes] = useState('');
+
+    //Cette fonction extrait les données depuis la base de données en utilisant axios
+    const getAllNotes = () => {
+        axios.get(`${url_api}`)
+        .then((response) => {
+            const allNotes = response.data; //les données reçu depuis l'api sont gardées ici
+            getNotes(allNotes); //react state est mise à jour avec les données reçues
+        })
+        .catch(error => console.error(`Error: ${error}`));
+    }
+
+    //la fonction getAllNotes() est executée quand la page est rendue (rendered)
+    useEffect(() => {
+        getAllNotes();
+    })
+
+
   return (
         <div id="demo">
           <h1 className="title titleDemo">
               Démo
           </h1>
-          <div className="sm-container">
+
+          < GetDemo notes={notes}/>
+
+          {/* <div className="sm-container">
             <p className="sm-paragraph">
                 First line. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
                 totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta 
@@ -64,7 +91,7 @@ function SectionDemo() {
                 sunt explicabo.Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
                 consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est. 
             </p> 
-          </div>
+          </div> */}
           
           {/* Video demonstration */}
           <div className="video-container" id="test">

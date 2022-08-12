@@ -1,14 +1,45 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Parallax } from 'react-scroll-parallax';
+import GetApropos from "./get/GetApropos";
+import axios from 'axios';
 
 function APropos() {
+
+
+    //backend 
+  const url_api = "http://localhost:9000/apropos/";
+
+  //state des données reçues
+  const [text, getText] = useState('');
+
+  //Extraire les données depuis l'api (serveur)
+  const getAllText = () =>{
+    axios.get(`${url_api}`)
+    .then((response) => {
+      const allText = response.data; //ce que nous reçevons de l'api
+      getText(allText); //le state contient les données reçues depuis la base de donnée
+    })
+    .catch((error) => {
+      console.error(`Error: ${error}`);
+    })
+  }
+
+  //la fonction est executée dès que la page est rendu (loads)
+  useEffect(()=>{
+    getAllText();
+  })
+
+
   return (
         <div className="sectionContainer" id="about">
             <div className="sectionText">
                 <h1 className="title" >
                     Comment ça marche?
                 </h1>
-                <p className="paragraph">
+
+                <GetApropos text={text}/>
+
+                {/* <p className="paragraph">
                     Disposer d'une base de données multithématiques,
                     évolutive en fonction des besoins de la collectivité
                     (aussi bien sur les modèles de données que sur les
@@ -40,7 +71,9 @@ function APropos() {
                     La gestion multithématique de l'application permet
                     de couvrir tous les besoins au sein d'une même
                     direction.
-                </p>
+                </p> */}
+                
+
             </div>
 
             <div className="sectionImage">
