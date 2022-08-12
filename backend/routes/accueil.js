@@ -29,4 +29,27 @@ router.route('/add').post((req, res) => { //une requete Post
      .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+    accueil.findById(req.params.id)
+      .then(content => res.json(content))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
+
+//mise à jour by id
+router.route('/update/:id').post((req, res) => {
+    accueil.findById(req.params.id)
+      .then(content => {
+        content.para1 = req.body.para1;
+        content.para2= req.body.para2;
+        content.para3= req.body.para3;
+        content.para4= req.body.para4;
+  
+        content.save()
+          .then(() => res.json('content updated!'))
+          .catch(err => res.status(400).json('Error: ' + err));
+      })
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
 module.exports = router; 
